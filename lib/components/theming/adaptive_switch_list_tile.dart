@@ -6,7 +6,7 @@ class AdaptiveSwitchListTile extends SwitchListTile {
     super.key,
     required super.value,
     required super.onChanged,
-    super.activeThumbColor,
+    super.activeColor, // https://api.flutter.dev/flutter/material/Switch/activeColor.html
     super.activeTrackColor,
     super.inactiveThumbColor,
     super.inactiveTrackColor,

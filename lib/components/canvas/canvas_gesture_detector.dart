@@ -193,7 +193,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             center;
 
     return Matrix4.translation(translation)
-      ..scaleByDouble(newScale, newScale, newScale, 1);
+      ..scale(newScale);
   }
 
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
@@ -220,7 +220,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final transformation = widget._transformationController.value;
     const panAmount = 50.0;
 
-    transformation.leftTranslateByDouble(
+    transformation.leftTranslate(
       switch (direction) {
         AxisDirection.left => panAmount,
         AxisDirection.right => -panAmount,
@@ -232,9 +232,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         AxisDirection.right => 0.0,
         AxisDirection.up => panAmount,
         AxisDirection.down => -panAmount,
-      },
-      0,
-      1,
+      }
     );
     widget._transformationController.notifyListenersPlease();
   }
@@ -376,7 +374,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
     if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
       widget._transformationController.value
-          .leftTranslateByDouble(adjustmentX, adjustmentY, 0, 1);
+          .leftTranslate(adjustmentX, adjustmentY);
     }
   }
 
